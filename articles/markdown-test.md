@@ -3,7 +3,7 @@ title: "マークダウンテスト"
 emoji: "📝"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["markdown", "zenn", "test"]
-published: false
+published: true
 ---
 
 Zenn の Markdown 表示をまとめて確認するためのテスト記事です。
