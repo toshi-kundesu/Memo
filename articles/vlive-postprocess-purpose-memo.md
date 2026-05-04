@@ -3,7 +3,7 @@ title: "Unity/After Effectsポスプロ検証: ライトラップ/グレイン/�
 emoji: "✨"
 type: "idea"
 topics: ["unity", "aftereffects", "postprocess", "lookdev", "ae"]
-published: true
+published: false
 ---
 
 ライブっぽい画を作るとき、ポストプロセスを最後の味付けとして全部盛りしたくなる。

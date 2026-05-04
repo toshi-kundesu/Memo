@@ -3,7 +3,7 @@ title: "Unityライブカメラ検証メモ: CameraCrossFade/ViewFinder/Composit
 emoji: "📷"
 type: "idea"
 topics: ["unity", "camera", "cinemachine", "visualcompositor", "vlive"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

@@ -3,7 +3,7 @@ title: "MVR/VectorWorksからUnityへ配灯を持ち込む: 灯体Prefab置換�
 emoji: "🗺️"
 type: "idea"
 topics: ["unity", "mvr", "vectorworks", "magicq", "lighting"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

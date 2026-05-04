@@ -3,7 +3,7 @@ title: "Unity Toonシェーダーギミックメモ: 法線球面化/ライト�
 emoji: "🟡"
 type: "idea"
 topics: ["unity", "shader", "toon", "lighting", "vrm"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

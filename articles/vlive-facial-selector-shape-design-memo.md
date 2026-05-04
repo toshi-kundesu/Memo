@@ -3,7 +3,7 @@ title: "Unityフェイシャルセレクター検証: 下瞼/口移動/左右非
 emoji: "🙂"
 type: "idea"
 topics: ["vlive", "facial", "blendshape", "unity", "animation"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

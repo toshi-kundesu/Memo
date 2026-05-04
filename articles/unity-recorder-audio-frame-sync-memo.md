@@ -3,7 +3,7 @@ title: "UnityRecorderの仕様についてのメモ"
 emoji: "🎬"
 type: "idea"
 topics: ["unity", "recorder", "audio", "timeline", "vlive"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

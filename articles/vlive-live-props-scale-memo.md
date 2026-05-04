@@ -3,7 +3,7 @@ title: "バーチャルライブ小物メモ: マイク/ケーブル/黒い備�
 emoji: "🎤"
 type: "idea"
 topics: ["vlive", "unity", "props", "vfxgraph", "mocap"]
-published: true
+published: false
 ---
 
 キャラと背景だけでライブ画面を作ると、空間が軽く見えることがある。

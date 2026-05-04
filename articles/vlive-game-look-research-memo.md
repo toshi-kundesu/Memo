@@ -3,7 +3,7 @@ title: "ゼンゼロ風ルック研究メモ: 色/キャラ/AE合成の分解"
 emoji: "🎮"
 type: "idea"
 topics: ["lookdev", "unity", "game", "ae", "toon"]
-published: true
+published: false
 ---
 
 ゼンレスゾーンゼロ、チェンソーマン、タコピー、MAPPA系の映像やゲームを見ていたとき、最初はルックを真似る話に見えやすかった。

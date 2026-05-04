@@ -3,7 +3,7 @@ title: "バーチャルライブ制作メモ総目次: Unity照明/カメラ/モ
 emoji: "🌾"
 type: "idea"
 topics: ["unity", "vlive", "lighting", "camera", "mocap"]
-published: true
+published: false
 ---
 
 バーチャルライブまわりで調べたこと、詰まったこと、あとで記事にしたいことを、目次だけでも見返せるように整理しています。

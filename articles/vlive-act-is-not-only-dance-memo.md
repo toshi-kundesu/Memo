@@ -3,7 +3,7 @@ title: "キャラライブのアクトをダンス量だけで考えない: 客�
 emoji: "👏"
 type: "idea"
 topics: ["vlive", "animation", "mocap", "camera", "music"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

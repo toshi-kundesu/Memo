@@ -3,7 +3,7 @@ title: "キャラクターライブの顔まわりを見る: フェイシャル/
 emoji: "🎭"
 type: "idea"
 topics: ["vlive", "facial", "mocap", "blendshape", "animation"]
-published: true
+published: false
 ---
 
 キャラクターライブでは、シェーダや照明より前に、キャラクター本人の見え方でかなり印象が決まる場面がある。

@@ -3,7 +3,7 @@ title: "Unity uLipSync/OSCでリップシンクを送受信する: FacialReceive
 emoji: "🗣️"
 type: "idea"
 topics: ["unity", "ulipsync", "osc", "blendshape", "vlive"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

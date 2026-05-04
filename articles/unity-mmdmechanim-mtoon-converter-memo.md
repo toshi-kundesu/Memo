@@ -3,7 +3,7 @@ title: "MMDMechanimからMToonへシェーダを変換する: ShadowColor/Outlin
 emoji: "🎭"
 type: "idea"
 topics: ["unity", "mmd", "vrm", "mtoon", "shader"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

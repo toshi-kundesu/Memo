@@ -3,7 +3,7 @@ title: "Unityステージ制作メモ: トラス/床/バミリ/MVR/Vectorworks"
 emoji: "🏟️"
 type: "idea"
 topics: ["unity", "mvr", "vectorworks", "stage", "lighting"]
-published: true
+published: false
 ---
 
 バーチャルライブの個人制作・個人検証でステージを作ろうとすると、最初は「全部モデリングしないといけない」と考えがちだった。

@@ -3,7 +3,7 @@ title: "バーチャルライブ制作のUnity/照明/カメラ/モキャプ入�
 emoji: "🎧"
 type: "idea"
 topics: ["vlive", "unity", "lighting", "camera", "mocap"]
-published: true
+published: false
 ---
 
 バーチャルライブを作ろうとすると、「Unityを触ればライブっぽいものが作れる」というより、ライブっぽく見えるために見ておくものがかなり多いな、となる。

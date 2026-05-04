@@ -3,7 +3,7 @@ title: "キャラクターアニメーションの短尺検証: 決めカット/
 emoji: "🕺"
 type: "idea"
 topics: ["animation", "mocap", "facial", "unity", "vlive"]
-published: true
+published: false
 ---
 
 この記事は、自主制作で短いキャラクターライブ映像を作る場合のメモです。

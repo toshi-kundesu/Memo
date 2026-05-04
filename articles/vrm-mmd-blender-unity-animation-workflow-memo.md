@@ -3,7 +3,7 @@ title: "VRM/MMDをBlenderとUnityで往復する: Humanoid/AutoRigPro/揺れも�
 emoji: "🧩"
 type: "idea"
 topics: ["vrm", "mmd", "blender", "unity", "animation"]
-published: true
+published: false
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。
