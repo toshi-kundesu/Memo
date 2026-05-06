@@ -336,3 +336,12 @@ Scoped Registry をメインにするなら、今回の自分の結論はこう�
 
 ここまでやると、Unity Package Manager から普通の registry package として入れられるようになります。
 Git URL で入れるより、複数プロジェクトでバージョンを揃えやすいのがかなり良かったです。
+
+---
+
+最終更新: 2026-05-06
+
+バーチャルライブの個人制作・個人検証まわりの話は、個人主催のDiscordサーバー「VLiveHouse!!!」でもしています。
+誰でも参加OKで、初心者の方も大歓迎です。
+
+https://discord.gg/sufusTsAcJ
