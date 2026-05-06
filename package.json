@@ -1,7 +1,9 @@
 {
-  "name": "zenn",
+  "name": "com.toshi.memo",
   "version": "1.0.0",
-  "description": "",
+  "displayName": "Memo",
+  "description": "Memo and writing workspace for VLiveKit.",
+  "unity": "2022.3",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
+  "devDependencies": {
     "zenn-cli": "^0.4.7"
   }
 }
