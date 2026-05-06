@@ -3,7 +3,7 @@ title: "Unity の UPM パッケージを npm の Scoped Registry で配るメモ
 emoji: "📦"
 type: "tech"
 topics: ["unity", "upm", "npm", "githubactions", "zenn"]
-published: false
+published: true
 ---
 
 Unity の自作 UPM パッケージを、Git URL ではなく **Scoped Registry** から入れられるようにしたメモです。
