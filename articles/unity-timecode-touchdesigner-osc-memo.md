@@ -3,7 +3,7 @@ title: "UnityはLTCを直接読まずOSCで受ける: TouchDesigner/Timecode同�
 emoji: "⏱️"
 type: "idea"
 topics: ["unity", "timecode", "touchdesigner", "osc", "vlive"]
-published: false
+published: true
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。

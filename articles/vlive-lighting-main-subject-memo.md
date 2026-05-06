@@ -3,7 +3,7 @@ title: "Unityライブ照明をArtNet/DMXで外部制御するメモ"
 emoji: "💡"
 type: "idea"
 topics: ["unity", "artnet", "dmx", "lighting", "touchdesigner"]
-published: false
+published: true
 ---
 
 バーチャルライブの個人制作・個人検証でUnity上の照明を触るとき、最初から「照明っぽい絵作り」を全部Unity内で完結させようとすると重くなる。
