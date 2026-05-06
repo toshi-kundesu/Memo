@@ -29,6 +29,8 @@ Unity の自作 UPM パッケージを、Git URL ではなく **Scoped Registry*
 
 今回は `com.toshi.vlivekit.testassetscontainer` という Unity package を npm registry に publish しました。
 
+![Package Manager に表示された scoped registry package](/images/unity-scoped-registry-upm-release-memo/package-manager-scoped-registry.png)
+
 ## Git URL 配布と Scoped Registry 配布は別物
 
 最初は GitHub Actions でタグを打ったら `git subtree split` して、`upm` ブランチを作る方式を考えていました。
@@ -80,6 +82,13 @@ npm 側で Access Token を作り、GitHub の repository secret に `NPM_TOKEN`
 
 npm token は GitHub Actions から publish するために使います。
 2FA を有効にしている場合は、automation 用に使える token を作る必要があります。
+なお、npm 側では automation token より Trusted Publishing が推奨されているので、今後きれいにするならそちらに寄せるのがよさそうです。
+
+![npm の Granular Access Token 設定例](/images/unity-scoped-registry-upm-release-memo/npm-granular-token-settings.png)
+
+GitHub Actions 側では `GITHUB_TOKEN` が release 作成や repository への書き込みに使えるよう、repository の Actions permissions も確認しました。
+
+![GitHub Actions の Workflow permissions 設定](/images/unity-scoped-registry-upm-release-memo/github-actions-workflow-permissions.png)
 
 workflow はタグ push をトリガーにします。
 
@@ -168,10 +177,17 @@ jobs:
 途中で `git subtree split` を使って `upm` ブランチを作る方式も試しました。
 Git URL 配布ではよくある構成です。
 
+ただ、途中で `upm` と `upm/v0.0.3` のような名前が衝突して push に失敗しました。
+Git の ref 名としては、`refs/heads/upm` が存在すると `refs/heads/upm/v0.0.3` を作れません。
+
+![upm ブランチ名の衝突で GitHub Actions が失敗したログ](/images/unity-scoped-registry-upm-release-memo/upm-branch-push-conflict.png)
+
 ただ、Scoped Registry がメインなら `upm` ブランチはなくても困りません。
 
 `upm` や `upm-v0.0.6` のような配布用ブランチを作ると、Git graph が main から横に分かれて見えます。
 壊れているわけではないのですが、自分の用途では少しノイズでした。
+
+![配布用 upm ブランチが増えた Git graph](/images/unity-scoped-registry-upm-release-memo/git-graph-upm-branches.png)
 
 最終的には、main の中にある package root を `/tmp/upm-package` にコピーして、その一時 directory から `npm pack` / `npm publish` する形にしました。
 これなら release のたびにブランチが増えません。
@@ -201,9 +217,13 @@ Assets/toshi.VLiveKit/TestAssetsContainer/.npmignore
 
 重い素材は Git repo や GitHub Release、必要なら LFS で管理し、Scoped Registry には最低限の package と軽いサンプルだけを出すのが扱いやすそうです。
 
+![重い asset を除外して publish が成功した GitHub Actions](/images/unity-scoped-registry-upm-release-memo/actions-success-v006.png)
+
 ## Samples タブに出すには Samples~ と package.json
 
 Unity Package Manager の Samples タブに出したい場合は、package root に `Samples~` を作り、`package.json` に `samples` を書きます。
+
+![Unity Package Manager の Samples タブ例](/images/unity-scoped-registry-upm-release-memo/unity-package-samples-tab-example.png)
 
 Unity 公式マニュアルでも、サンプルは `Samples~` 以下に置き、`package.json` の `samples` 配列で指定する形になっています。
 
@@ -244,6 +264,8 @@ fi
 ## README.md と LICENSE の .meta
 
 package root に repository root の `README.md` や `LICENSE` をコピーすると、Unity が immutable package 内で `.meta` がないと警告を出しました。
+
+![immutable package 内の README.md と LICENSE に .meta がない警告](/images/unity-scoped-registry-upm-release-memo/unity-immutable-package-meta-warning.png)
 
 ```text
 Asset Packages/com.toshi.../README.md has no meta file, but it's in an immutable folder.
