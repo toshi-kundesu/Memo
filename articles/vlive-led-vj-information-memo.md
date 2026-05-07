@@ -3,7 +3,7 @@ title: "Unity LED/VJ検証: Spout/NDI/KodeLife/DMXで背景映像を扱うメモ
 emoji: "📺"
 type: "idea"
 topics: ["unity", "vj", "ndi", "spout", "led"]
-published: false
+published: true
 ---
 
 バーチャルライブの個人制作・個人検証でLEDやVJを触るとき、最初は「背景に映像を流す板」として見がちだった。
