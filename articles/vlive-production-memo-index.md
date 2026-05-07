@@ -43,6 +43,7 @@ Unityを全部入りの制御アプリにするより、外から信号を受け
 - [Unity ArtNet受信はPrefabに寄せる: DMX RECとTimeline再現メモ](./unity-artnet-prefab-receiver-dmx-rec-memo)
 - [UnityはLTCを直接読まずOSCで受ける: TouchDesigner/Timecode同期メモ](./unity-timecode-touchdesigner-osc-memo)
 - [MagicQで照明打ち込みを効率化する: TC REC/SpeedMaster/FXプリセットメモ](./magicq-lighting-speedmaster-workflow-memo)
+- [バーチャルライブ制作で使う便利ツールまとめ: ArtNet/Timecode/照明/VJメモ](./vlive-useful-tools-memo)
 
 ## カメラは見せるカットと書き出し安定化を分けて考える
 
