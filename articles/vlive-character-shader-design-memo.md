@@ -3,7 +3,7 @@ title: "HDRPでVRM/MToonルックを調整する: ライブ照明向けキャラ
 emoji: "🎨"
 type: "idea"
 topics: ["unity", "hdrp", "vrm", "mtoon", "shader"]
-published: true
+published: false
 ---
 
 キャラクターライブの個人制作・個人検証でシェーダを触るとき、最初に詰まりやすいのは「派手なシェーダを作ること」より、ライブ照明の中でキャラのルックを崩しすぎないことだった。
