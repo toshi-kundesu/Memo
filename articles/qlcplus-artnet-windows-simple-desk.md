@@ -55,9 +55,13 @@ Windows の場合は `Windows 10 or later` の行にある `Download` を押し�
 
 手順どおりに設定してもよいですが、同じ状態から試したい場合はテスト用の `.qxw` ファイルを用意しておくと楽です。
 
-この記事では `qlc_test.qxw` というファイルを使っています。
+この記事では `qlc_test.qxw` というファイルを使っています。GitHub に置いてあります。
 
-https://raw.githubusercontent.com/toshi-kundesu/Memo/main/samples/qlcplus-artnet-windows-simple-desk/qlc_test.qxw
+https://github.com/toshi-kundesu/Memo/blob/main/samples/qlcplus-artnet-windows-simple-desk/qlc_test.qxw
+
+GitHub の画面を開いたら、右上あたりの `Raw` ボタン、またはダウンロードアイコンから保存できます。
+
+![GitHubからqlc_test.qxwをダウンロードする](/images/qlcplus-artnet-windows-simple-desk/19-github-qxw-download.png)
 
 このファイルには、Art-Net の出力先として `127.0.0.1` が設定されています。
 
