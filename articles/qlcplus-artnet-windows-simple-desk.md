@@ -97,9 +97,11 @@ QLC+ が起動したら、上部のタブから `入出力設定` を開きま�
 
 ![入出力設定でUniverseごとのArt-Net出力を見る](/images/qlcplus-artnet-windows-simple-desk/08-input-output-artnet-play.png)
 
-各ユニバースの右側に Art-Net の出力設定があり、再生マークのようなボタンを押すと、そのユニバースの出力が有効になります。
+各ユニバースの右側に Art-Net の出力設定があり、再生マークのようなボタンを押すと、そのユニバースの出力が有効になるようです。
 
 有効になると、ボタンが停止/一時停止っぽい表示に変わります。
+ただ、この表示と実際の送信状態の関係はまだ少しよくわかっていません。
+手元では、一時停止っぽい表示にしても、しなくても、Art-Net が送られているように見えることがありました。
 
 ![Universe 1のArt-Net出力を有効にした状態](/images/qlcplus-artnet-windows-simple-desk/09-input-output-artnet-pause.png)
 
