@@ -22,22 +22,26 @@ namespace Toshi.Memo.Editor
         string emoji = DefaultEmoji;
         string topics = DefaultTopics;
         bool published;
+        Vector2 markdownScrollPosition;
+        GUIStyle markdownH1Style;
+        GUIStyle markdownH2Style;
+        GUIStyle markdownH3Style;
+        GUIStyle markdownBodyStyle;
+        GUIStyle markdownCodeStyle;
 
-        [MenuItem("Tools/Memo/New Zenn Article")]
+        [MenuItem("toshi/VLiveKit/Project/Zenn Window")]
         static void OpenWindow()
         {
-            var window = GetWindow<MemoEditorWindow>("New Zenn Article");
-            window.minSize = new Vector2(420, 250);
+            var window = GetWindow<MemoEditorWindow>("Zenn Window");
+            window.minSize = new Vector2(520, 520);
             window.slug = CreateSlug(window.articleTitle);
         }
 
-        [MenuItem("Tools/Memo/Open Preview")]
         static void OpenPreview()
         {
             Application.OpenURL($"http://localhost:{PreviewPort}");
         }
 
-        [MenuItem("Tools/Memo/Open Current Article Preview")]
         static void OpenCurrentArticlePreview()
         {
             var path = Selection.activeObject != null ? AssetDatabase.GetAssetPath(Selection.activeObject) : "";
@@ -50,19 +54,16 @@ namespace Toshi.Memo.Editor
             Application.OpenURL($"http://localhost:{PreviewPort}/articles/{articleSlug}");
         }
 
-        [MenuItem("Tools/Memo/Open Memo Folder")]
         static void OpenMemoFolder()
         {
             EditorUtility.RevealInFinder(GetPackageRoot());
         }
 
-        [MenuItem("Tools/Memo/Open Zenn Dashboard")]
         static void OpenZennDashboard()
         {
             Application.OpenURL("https://zenn.dev/dashboard");
         }
 
-        [MenuItem("Tools/Memo/Start Zenn Preview")]
         static void StartPreview()
         {
             var root = GetPackageRoot();
@@ -98,6 +99,150 @@ namespace Toshi.Memo.Editor
         }
 
         void OnGUI()
+        {
+            EnsureMarkdownStyles();
+            DrawPreviewControls();
+            DrawMarkdownPreview();
+        }
+
+        void DrawPreviewControls()
+        {
+            EditorGUILayout.LabelField("Zenn Window", EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox("Start the local Zenn preview server, open the browser preview, or inspect the selected Markdown article inside Unity.", MessageType.None);
+
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                if (GUILayout.Button("Start Zenn Preview", GUILayout.Height(30)))
+                {
+                    StartPreview();
+                }
+
+                if (GUILayout.Button("Open Preview", GUILayout.Height(30)))
+                {
+                    OpenPreview();
+                }
+
+                if (GUILayout.Button("Open Current Article", GUILayout.Height(30)))
+                {
+                    OpenCurrentArticlePreview();
+                }
+            }
+
+            EditorGUILayout.Space(8);
+        }
+
+        void DrawMarkdownPreview()
+        {
+            EditorGUILayout.LabelField("Markdown Preview", EditorStyles.boldLabel);
+
+            var assetPath = Selection.activeObject != null ? AssetDatabase.GetAssetPath(Selection.activeObject) : "";
+            if (!TryGetArticleSlug(assetPath, out var articleSlug))
+            {
+                EditorGUILayout.HelpBox("Select a Markdown file under Packages/Memo/articles to preview it here.", MessageType.None);
+                return;
+            }
+
+            var fullPath = ToProjectPath(assetPath);
+            if (!File.Exists(fullPath))
+            {
+                EditorGUILayout.HelpBox("Selected article file was not found.", MessageType.None);
+                return;
+            }
+
+            EditorGUILayout.LabelField("Article", articleSlug, EditorStyles.miniLabel);
+            markdownScrollPosition = EditorGUILayout.BeginScrollView(markdownScrollPosition);
+            DrawMarkdown(File.ReadAllText(fullPath, Encoding.UTF8));
+            EditorGUILayout.EndScrollView();
+        }
+
+        void DrawMarkdown(string markdown)
+        {
+            var inCodeBlock = false;
+            var lines = StripFrontMatter(markdown).Replace("\r\n", "\n").Split('\n');
+
+            foreach (var rawLine in lines)
+            {
+                var line = rawLine.TrimEnd('\r');
+                if (line.TrimStart().StartsWith("```", StringComparison.Ordinal))
+                {
+                    inCodeBlock = !inCodeBlock;
+                    continue;
+                }
+
+                if (inCodeBlock)
+                {
+                    EditorGUILayout.LabelField(line, markdownCodeStyle);
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    EditorGUILayout.Space(6);
+                    continue;
+                }
+
+                if (line.StartsWith("### ", StringComparison.Ordinal))
+                {
+                    EditorGUILayout.LabelField(line.Substring(4), markdownH3Style);
+                }
+                else if (line.StartsWith("## ", StringComparison.Ordinal))
+                {
+                    EditorGUILayout.LabelField(line.Substring(3), markdownH2Style);
+                }
+                else if (line.StartsWith("# ", StringComparison.Ordinal))
+                {
+                    EditorGUILayout.LabelField(line.Substring(2), markdownH1Style);
+                }
+                else if (line.StartsWith("- ", StringComparison.Ordinal) || line.StartsWith("* ", StringComparison.Ordinal))
+                {
+                    EditorGUILayout.LabelField("- " + line.Substring(2), markdownBodyStyle);
+                }
+                else
+                {
+                    EditorGUILayout.LabelField(line, markdownBodyStyle);
+                }
+            }
+        }
+
+        void EnsureMarkdownStyles()
+        {
+            if (markdownBodyStyle != null)
+            {
+                return;
+            }
+
+            markdownBodyStyle = new GUIStyle(EditorStyles.wordWrappedLabel);
+            markdownH1Style = new GUIStyle(EditorStyles.boldLabel) { fontSize = 18, wordWrap = true };
+            markdownH2Style = new GUIStyle(EditorStyles.boldLabel) { fontSize = 15, wordWrap = true };
+            markdownH3Style = new GUIStyle(EditorStyles.boldLabel) { fontSize = 13, wordWrap = true };
+            markdownCodeStyle = new GUIStyle(EditorStyles.textArea) { wordWrap = true };
+        }
+
+        static string StripFrontMatter(string markdown)
+        {
+            if (string.IsNullOrEmpty(markdown) || !markdown.StartsWith("---", StringComparison.Ordinal))
+            {
+                return markdown ?? "";
+            }
+
+            var normalized = markdown.Replace("\r\n", "\n");
+            var endIndex = normalized.IndexOf("\n---", 3, StringComparison.Ordinal);
+            if (endIndex < 0)
+            {
+                return markdown;
+            }
+
+            var contentStart = normalized.IndexOf('\n', endIndex + 4);
+            return contentStart < 0 ? "" : normalized.Substring(contentStart + 1);
+        }
+
+        static string ToProjectPath(string assetPath)
+        {
+            var projectRoot = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
+            return Path.GetFullPath(Path.Combine(projectRoot, assetPath));
+        }
+
+        void DrawArticleCreator()
         {
             EditorGUILayout.LabelField("Create Zenn Article", EditorStyles.boldLabel);
             EditorGUILayout.HelpBox("Packages/Memo/articles に Zenn 記事を作ります。node_modules は Unity package 内に置かない運用です。", MessageType.Info);

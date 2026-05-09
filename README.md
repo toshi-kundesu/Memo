@@ -9,6 +9,14 @@ VLiveKit の制作メモ、技術メモ、Zenn 公開用記事を管理する re
 - `images/`: 記事で使う画像
 - `private/`: 公開前・内部向けのメモ
 
+## Unity Zenn Window
+
+Open the Unity helper from:
+
+`toshi > VLiveKit > Project > Zenn Window`
+
+The window starts the Zenn preview server, opens the browser preview, opens the current article, and shows a simple in-Editor Markdown preview for selected files under `articles/`.
+
 ## Preview
 
 Zenn CLI で preview します。
