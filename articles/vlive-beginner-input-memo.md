@@ -155,6 +155,11 @@ Unity側では、Timeline、Cinemachine、Recorderあたりの名前を知って
 - [UnityRecorderの仕様についてのメモ](./unity-recorder-audio-frame-sync-memo)
 - [Unityライブカメラ検証メモ: CameraCrossFade/ViewFinder/Composite](./unity-photography-camera-tools-memo)
 
+書き出した動画の確認には、普段使いのプレイヤーとは別に検証用のプレイヤーをひとつ持っておくと楽です。
+MPC-BEはWindows向けの無料/OSSのメディアプレイヤーで、動画を書き出した後の再生確認、コマ送り、形式違いの確認に使いやすそう。
+
+https://sourceforge.net/projects/mpcbe/
+
 照明、ステージ、小物、キャラクターアニメーション、シェーダー、ポスプロ、LED/VJ、ゲーム研究の見方は、それぞれたたき台として切り出しました。
 技術寄りの実装メモも、LEDVision、uLipSync/OSC、MMD2MToon、軽量SSS、カメラ補助のように、あとでコード整理しやすい単位へ分けています。
 
@@ -411,7 +416,7 @@ GitHubや雑誌は、完成された教科書というより「こういう方�
 
 ---
 
-最終更新: 2026-05-04
+最終更新: 2026-05-11
 
 バーチャルライブの個人制作・個人検証まわりの話は、個人主催のDiscordサーバー「VLiveHouse!!!」でもしています。
 誰でも参加OKで、初心者の方も大歓迎です。

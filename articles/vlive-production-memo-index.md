@@ -89,6 +89,7 @@ VRM、MMD、MToon、HDRP、Toonシェーダ、キャラルック系。
 ライブ照明の中でキャラのデザインの見え方を調整する検証が多いです。
 
 - [HDRPでVRM/MToonルックを調整する: ライブ照明向けキャラシェーダメモ](./vlive-character-shader-design-memo)
+- [UnityでVRM/トゥーン系マテリアルを触るときの深度・Cull・透明のメモ](./unity-vrm-toon-depth-cull-transparent-memo)
 - [Unity Toonシェーダーギミックメモ: 法線球面化/ライト方向制限](./unity-toon-normal-light-direction-memo)
 - [HDRP Toonで顔の影と髪影を調整する: Custom Light/HairShadow/Stencilメモ](./hdrp-toon-custom-light-hairshadow-memo)
 - [VRM/MMDをBlenderとUnityで往復する: Humanoid/AutoRigPro/揺れものメモ](./vrm-mmd-blender-unity-animation-workflow-memo)
