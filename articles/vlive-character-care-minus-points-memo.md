@@ -3,7 +3,7 @@ title: "キャラライブの修正ポイント: 揺れもの/めり込み/雑�
 emoji: "🧵"
 type: "idea"
 topics: ["vlive", "character", "animation", "rigging", "mocap"]
-published: false
+published: true
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。
