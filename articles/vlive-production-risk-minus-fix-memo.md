@@ -3,7 +3,7 @@ title: "バーチャルライブ個人制作の修正順メモ: 加点より減�
 emoji: "🧭"
 type: "idea"
 topics: ["vlive", "unity", "workflow", "lighting", "mocap"]
-published: false
+published: true
 ---
 
 [バーチャルライブ制作メモ総目次](./vlive-production-memo-index) に戻る。
