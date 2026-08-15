@@ -38,6 +38,8 @@ CATS経由のVRoid系なら`VRoid (CATS fixed)`も候補になる。
 
 この場合、いきなり適用して終わりにせず、`Fuzzy Match`で近い名前を拾わせてから中身を見る。今回のように`joint_LeftArm`、`joint_RightKnee`のような名前が残っているモデルでは、Fuzzy Matchでかなり拾える。
 
+`Build Bones List`後は、体幹、腕、脚、指の順に確認する。Fuzzy Matchは誤認識もあるので、特に手足の左右は骨位置を見て確かめる。
+
 ただし、緑になったから正しいとは限らない。特に見るのはこのあたり。
 
 - 左右の腕
@@ -63,6 +65,13 @@ Unable to open or write bookmark file
 ここで`config`を丸ごと退避すると、Auto-Rig ProやVRM importerなどのアドオン設定が飛ぶ可能性がある。なので、既存設定を消さない。
 
 今回のように作業を進めたいだけなら、Blenderを管理者権限で起動するのが一時回避として早かった。長期的には、Blender本体を`Program Files`以外の書き込み可能な場所に置くか、`config`や`bookmarks.txt`の権限だけ直す方が安全。
+
+既存設定を保ったまま直すなら、次の順で影響の小さい方法から試す。
+
+- `bookmarks.txt`だけを作成し、現在のWindowsユーザーへ書き込み権限を付ける。
+- 必要なら`config`フォルダへ書き込み権限を付ける。
+- 一時回避としてBlenderを管理者権限で起動する。ただし常用は避ける。
+- Portable運用へ移す場合は、書き込み可能な場所へBlenderを置き、既存`config`をコピーして設定を引き継ぐ。
 
 ## 目や頭のコントローラーはMake Rig前に作る
 
@@ -161,6 +170,30 @@ Auto-Rig Pro設定後、VRMとして出す前に見るのはこのあたり。
 
 このあと、VRM変換でMToon/LiveToonへ寄ってしまったMaterialを戻す作業が必要になる場合がある。そこはUnity側で、変換前の`Materials`フォルダから差し替える。
 
+## VRM変換後のMaterialを戻す
+
+VRM変換後にMToon/LiveToonへ寄ったMaterialを元のMMDまたは変換前Materialへ戻す場合は、VLiveKitのMaterial Replacerを使う。
+
+1. Unityメニューの`toshi/VLiveKit/VRM/Material Replacer`を開く
+2. `Converted VRM Root`へ変換後のVRM prefabまたはScene上のRootを指定する
+3. `Source Materials Folder`へ変換前の`Materials`フォルダを指定する
+4. `Preview`で対応関係を確認する
+5. 問題がなければ`Apply`する
+
+Material名の`_LiveToon`、`_MToon`、`_OfficialHDRPMMD`、`(Instance)`などの差はツール側で吸収する。ただし自動対応をそのまま確定せず、PreviewでRendererとMaterialの組み合わせを確認してから適用する。
+
+## Unityへ戻したあとの動作確認
+
+Humanoid animation clipを1つ適用し、問題の種類ごとに確認場所を分ける。
+
+- 足が浮く場合はHipsとRoot Boneを見る
+- 腕がねじれる場合はShoulder、Upper Arm、Lower Armを見る
+- 指が不自然に折れる場合はFinger mappingとbone rollを見る
+- 口が勝手に動く場合はJaw mappingを見る
+- 髪や服が変な位置で揺れる場合はSpringBoneと揺れもののRootを見る
+
+Humanoid mapping、T-Pose、Material、SpringBoneを別々に確認すると、どの工程で崩れたかを戻りやすくなる。
+
 ## まとめ
 
 今回の流れでは、Auto-Rig ProのQuick Rigを使って、VRM/MMD由来のモデルをHumanoid向けに整理できそうだった。
@@ -178,7 +211,7 @@ Auto-Rig Pro設定後、VRMとして出す前に見るのはこのあたり。
 
 ---
 
-最終更新: 2026-06-08
+最終更新: 2026-08-16
 
 バーチャルライブの個人制作・個人検証まわりの話は、個人主催のDiscordサーバー「VLiveHouse!!!」でもしています。
 誰でも参加OKで、初心者の方も大歓迎です。
