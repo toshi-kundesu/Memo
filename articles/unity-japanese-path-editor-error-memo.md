@@ -3,7 +3,7 @@ title: "Unity プロジェクトの日本語パスに注意したほうがよさ
 emoji: "🗂️"
 type: "tech"
 topics: ["unity", "editor", "ulipsync", "troubleshooting"]
-published: true
+published: false
 ---
 
 Unity のプロジェクトを日本語名のフォルダ配下に置いていたら、Editor まわりで変な挙動が出ることがあった。

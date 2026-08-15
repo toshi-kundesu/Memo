@@ -3,7 +3,7 @@ title: "Unity HDRPのFogとTransparent Depthで詰まったときのメモ"
 emoji: "🌫️"
 type: "tech"
 topics: ["unity", "hdrp", "fog", "shader", "transparent"]
-published: true
+published: false
 ---
 
 HDRPでキャラクターを描いていると、Fogを入れた瞬間に「透明の面が浮く」「シルエットだけがFogに出る」「背景があると見え方が変わる」といったことがあります。
